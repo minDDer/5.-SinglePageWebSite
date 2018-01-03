@@ -1,0 +1,488 @@
+////////////////// FONTS //////////////////////////
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../media/fonts/opensans-webfont.woff2') format('woff2'),
+        url('../media/fonts/opensans-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@fontOpenSans: 'OpenSans', sans-serif;
+
+////////////////// COLORS /////////////////////////
+@mainTitleTextColor: #fff;
+
+@mainCallToTextColor: #b4adad;
+@mainCallToBackgroundColor: #fff;
+@mainCallToBorderColor: #938e8e;
+@mainCallToLinkButtonTextColor: #fff;
+@mainCallToLinkButtonBackgroundColor: #227dd3;
+
+@mainDocumentsAndPhotosTitleTextColor: #000;
+@mainDocumentsAndPhotosParagraphTextColor: #4f4e4e;
+@mainDocumentsAndPhotosBorderColor: #43a06d;
+
+@mainHeadingsTextColor: #fff;
+@mainHeadingsLinkBackgroundColor: #43a06d;
+
+@mainContactsBackgroundColor: #fff;
+@mainContactsLinkBackgroundColor: #43a06d;
+
+@footerTextColor: #fff;
+@footerBackgroundColor: #43a06d;
+////////////////// VARIABLES //////////////////////
+@margin: 0 auto;
+
+/////////// BEGINNING OF LESS STYLE ///////////////
+html, body { //TO FIX THE FOOTER AT THE BOTTOM
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#container {
+    margin: @margin;
+}
+
+#main {
+    .videoBackground {
+        position: relative;
+        
+        height: 900px;
+        overflow: hidden;
+
+        video {
+            width: 100%;
+        }
+        
+        img {
+            position: absolute;
+            width: 100%;
+            min-height: 900px;
+            top: -90px;
+            left: 0;
+        }
+    }
+    
+    .logo {
+        position: relative;
+        
+        a {
+            display: block;
+            
+            width: 273px;
+            height: 273px;
+            
+            margin: -832px auto 0 auto;
+            
+            border-radius: 100%;        
+            box-shadow: 10px 20px 100px black;
+            
+            opacity: .8;
+            
+            transition-duration: 1s;
+        }
+    }
+    
+    .logo a:hover {
+        display: block;
+        
+        opacity: 1;
+        box-shadow: 0 0 50px lighten(black,50%);
+        transition-duration: 1s;
+    }
+
+    .title {
+        position: relative;
+        margin: 130px -4px 0 0;
+        
+        color: @mainTitleTextColor;
+        font-family: @fontOpenSans;
+        font-size: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 40px;
+        
+        p:last-child {
+            margin: 23px 0 0 0;
+            font-weight: bolder;
+        }
+    }
+    
+    .callTo {
+        position: relative;
+        
+        width: 340px;
+        height: 340px;//370px;
+        margin: 100px auto 0 auto;
+        
+        border-radius: 5px;
+        background-color: @mainCallToBackgroundColor;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.28);
+        
+        color: @mainCallToTextColor;
+        
+        input {
+            width: 280px;
+            margin: 30px 20px 20px 20px;
+            padding: 0 10px 0 40px;
+            
+            color: @mainCallToTextColor;
+            font: 16px @fontOpenSans;
+            line-height: 40px;
+            
+            border: 1px solid lighten(@mainCallToBorderColor,20%);
+            border-radius: 5px;
+
+            background: url(../media/icons/phone-receiver.svg) no-repeat 10px center;
+            background-size: 20px;
+        }
+        
+        input:hover {
+            background-color: darken(@mainCallToBackgroundColor, 3%);
+        }
+        
+        input:focus {
+            outline: none;
+            background-color: darken(@mainCallToBackgroundColor, 3%);
+        }
+        
+        .imageSet {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+            
+            div {
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flex;
+                display: -o-flex;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            
+            img {
+                width: 68px;
+                height: 44px;
+                object-fit: cover;
+                filter: grayscale(.5);
+            }
+            
+            a:hover {
+                -webkit-filter: saturate(5);
+                filter: saturate(5);
+            }
+        }
+        
+        p {
+            margin: 20px;
+            
+            color: @mainCallToTextColor;
+            font: bold 16px @fontOpenSans;
+            
+            text-align: center;
+        }
+        
+        .imageSetContactButton {
+            display: block;
+            width: 210px;
+            
+            margin: -7px auto;
+            padding: 5px;
+            
+            color: @mainCallToLinkButtonTextColor;
+            font: 26px @fontOpenSans;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            
+            background-color: @mainCallToLinkButtonBackgroundColor;
+            
+            border: 5px solid lighten(@mainCallToLinkButtonBackgroundColor,20%);
+            transition-duration: 1s;
+        }
+        
+        a:hover {
+            background-color: lighten(@mainCallToLinkButtonBackgroundColor,20%);
+            transition-duration: .3s;
+        }
+        
+        a:active {
+            background-color: darken(@mainCallToLinkButtonBackgroundColor,20%);
+            transition-duration: .1s;
+        }
+    }
+    
+    .documentsAndPhotos {
+        width: 970px;
+        
+        margin: 60px auto 70px auto;
+        
+        div > div > div {
+            margin: 20px auto;
+            padding: 30px;
+            border: 3px solid transparent;
+            transition-duration: 1s;
+        }
+        
+        div > div > div:hover {
+            border: 3px solid lighten(@mainDocumentsAndPhotosBorderColor, 20%);
+            transition-duration: .5s;
+        }
+        
+        img {
+            float: left;
+            margin-right: 25px;
+            
+            height: 120px;
+        }
+        
+        img:hover {
+            filter: brightness(110%);
+        }
+        
+        img:active {
+            filter: brightness(90%);
+        }
+        
+        h2 {
+            color: @mainDocumentsAndPhotosTitleTextColor;
+            font: 28px @fontOpenSans;
+        }
+        
+        p {
+            color: @mainDocumentsAndPhotosParagraphTextColor;
+            font: 14px @fontOpenSans;
+        }
+    }
+    
+    .headings {
+        .flexBox {
+            width: 1000px;
+            margin: @margin;
+            
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        background: url(../media/images/main/headings/headingsBackground.png);
+        background-size: cover;
+        
+        .firstHeading, .secondHeading {
+            h2, p {
+                color: @mainHeadingsTextColor;
+            }
+
+            h2 {
+                font: bold 40px @fontOpenSans;
+            }
+
+            p {
+                font: 14px @fontOpenSans;
+            }
+        }
+        
+        .firstHeading {
+            width: 650px;
+            margin: 200px auto 250px auto;
+            
+            img {
+                margin: 86px 0 0 -110px;
+            }
+            
+            h2 {
+                margin: -326px 0 0 -56px;
+                text-align: center;
+            }
+            
+            p {
+                margin-top: 40px;
+                text-align: justify;
+            }
+        }
+        
+        .secondHeading {
+            width: 1200px;
+            margin: -100px auto 0 auto;
+            
+            img {
+                margin: 90px 50px 10px 10px;
+                float: left;
+            }
+            
+            p {
+                width: 600px;
+                float: left;
+                margin: 20px 0 40px 0;
+                padding: 0 200px 0 0;
+                text-align: justify;
+            }
+            
+            a {             
+                display: inline-block;
+                padding: 10px 40px;
+                
+                margin-bottom: 300px;
+                
+                color: @mainHeadingsTextColor;
+                font: 30px @fontOpenSans;
+                text-decoration: none;
+                text-transform: capitalize;
+                
+                border: 3px solid white;
+                border-radius: 10px;
+                
+                transition-duration: .4s;
+            }
+            
+            a:hover {
+                background-color: lighten(@mainHeadingsLinkBackgroundColor,10%);
+                transition-duration: .4s;
+            }
+            
+            a:active {
+                background-color: darken(@mainHeadingsLinkBackgroundColor,10%);
+                transition-duration: 0s;
+            }
+        }
+    }
+    
+    .map {        
+        iframe {
+            margin-top: -210px;
+            border: none;
+            outline: none;
+        }
+        
+        .flexBox {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .contacts {
+            position: relative;
+            margin: -580px auto;
+            
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            
+            width: 500px;
+            height: 500px;
+            
+            background: rgba(255,255,245,.6);
+            box-shadow: 3px 5px 10px darken(@mainContactsBackgroundColor,50%);
+            
+            border: 5px solid darken(@mainContactsBackgroundColor,10%);
+            border-radius: 50%;
+            
+            outline: none;
+            
+            input[type="text"] {
+                padding: 10px 10px 10px 40px;
+                background: white url(../media/icons/people.svg) no-repeat 10px center;
+                background-size: 20px;
+            }
+            
+            input[type="email"] {
+                padding: 10px 10px 10px 40px;
+                background: white url(../media/icons/note.svg) no-repeat 10px center;
+                background-size: 20px;
+            }
+            
+            textarea {
+                padding: 10px 10px 10px 40px;
+                background: white url(../media/icons/align-justify.svg) no-repeat 10px 10px;
+                background-size: 20px;
+                resize: none;
+            }
+            
+            input, textarea {
+                width: 350px;
+                margin: 10px 75px;
+                
+                font: 18px @fontOpenSans;
+                
+                border: 1px solid darken(@mainContactsBackgroundColor,10%);
+                border-radius: 3px;
+            }
+            
+            
+            input, textarea:focus {
+                outline: none;
+            }
+            
+            input:hover, textarea:hover {
+                outline: none;
+                background-color: darken(@mainContactsBackgroundColor,2%);
+            }
+            
+            a {
+                display: block;
+                
+                margin: 10px auto 15px auto;
+                
+                width: 90px;
+                height: 90px;
+                
+                font: 60px @fontOpenSans;
+                text-align: center;
+                line-height: 80px;
+                
+                color: white;
+                background-color: @mainContactsLinkBackgroundColor;
+                
+                border: 5px solid lighten(@mainContactsLinkBackgroundColor,10%);
+                border-radius: 100%;
+                
+                transition-duration: 1s;
+            }
+            
+            a:hover {
+                background-color: lighten(@mainContactsLinkBackgroundColor,10%);
+                transition-duration: .3s;
+            }
+            
+            a:active {
+                background-color: darken(@mainContactsLinkBackgroundColor,10%);
+                transition-duration: .1s;
+            }
+        }
+    }
+}
+
+#footer {
+//    width: 1280px;
+    height: 50px;
+    margin: @margin;
+    
+    color: @footerTextColor;
+    font: bold 22px @fontOpenSans;
+    text-align: center;
+    line-height: 50px;
+    
+    background-color: @footerBackgroundColor;
+    
+    p {
+        margin: 0;
+    }
+}
